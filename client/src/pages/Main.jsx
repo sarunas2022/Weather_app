@@ -5,12 +5,23 @@ import styles from './Main.module.scss';
 function Main() {
     const [inputData, setInputData] = useState(() => {});
     const [weatherData, SetWeatherData] = useState(() => []);
-    console.log(weatherData);
-    const [forecastData, setForecastData] = useState(() => {});
+    const [forecastData, setForecastData] = useState(() => []);
+    const [mapsData, setMapsData] = useState(() => []);
 
-    useEffect(() => {
-        console.log('render');
-    }, [weatherData, forecastData]);
+    const fetchMaps = async (event) => {
+        event.preventDefault();
+        try {
+            const response = await fetch(
+                `http://localhost:8080/api/maps?city=${inputData.city}`
+            );
+            const data = await response.json;
+            setMapsData(data);
+            console.log(data);
+            return data;
+        } catch (err) {
+            console.log(err);
+        }
+    };
 
     const fetchForecast = async (event) => {
         event.preventDefault();
@@ -21,6 +32,7 @@ function Main() {
             const data = await response.json();
             setForecastData(data);
             console.log(forecastData);
+            return data;
         } catch (err) {
             console.log(err);
         }
@@ -57,7 +69,7 @@ function Main() {
                 </form>
             </div>
             <Temp weather={weatherData} />
-            {/* <MapsContainer forecast={forecastData} /> */}
+            <MapsContainer maps={mapsData} />
         </>
     );
 }
