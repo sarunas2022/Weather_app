@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.get('/', async (req, res) => {
     try {
-        const { city } = req.body;
+        const { city } = req.query;
         const response = await axios.get(
             `http://api.positionstack.com/v1/forward?access_key=${process.env.MAPS_API_KEY}&query=${city}&results.map_url`
         );
