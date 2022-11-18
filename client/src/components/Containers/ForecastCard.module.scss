@@ -1,0 +1,10 @@
+.cardWrapper {
+    border: 0.3rem solid black;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 2rem;
+    gap: 1rem;
+    .card {
+        border: 0.3rem solid black;
+    }
+}

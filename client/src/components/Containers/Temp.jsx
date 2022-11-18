@@ -29,11 +29,15 @@ function Temp(props) {
         const feelsLike = Math.round(data.main.feels_like);
         return (
             <div className={styles.container}>
-                <div>
-                    <h1>{data.name}</h1>
-                    <h1>{CurrentTemp} °C</h1>
-                    <p>Feels like {feelsLike} °C</p>
-                    <p>{data.weather[0].description}</p>
+                <div className={styles.output}>
+                    <div className={styles.main}>
+                        <h1 className={styles.name}> {data.name} </h1>
+                        <h1>{CurrentTemp} °C</h1>
+                    </div>
+                    <div className={styles.secondary}>
+                        <p>Feels like {feelsLike} °C</p>
+                        <p>{data.weather[0].description}</p>
+                    </div>
                 </div>
             </div>
         );

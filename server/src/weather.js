@@ -19,7 +19,7 @@ router.get('/current', async (req, res) => {
     }
 });
 // route for 5 days  weather forecast for chosen location
-router.get('/5_days', async (req, res) => {
+router.get('/forecast', async (req, res) => {
     try {
         const { city } = req.query;
         const response = await axios.get(
