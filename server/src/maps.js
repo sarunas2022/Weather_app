@@ -6,12 +6,11 @@ const router = express.Router();
 
 router.get('/', async (req, res) => {
     try {
-        const { city } = req.query;
+        const { x, y } = req.query;
         const response = await axios.get(
-            `http://api.positionstack.com/v1/forward?access_key=${process.env.MAPS_API_KEY}&query=${city}&results.map_url`
+            `https://tile.openweathermap.org/map/clouds_new/1/${x}/${y}.png?appid=${process.env.WEATHER_API_KEY}`
         );
         const map = response.data;
-        console.log(map);
         res.json(map);
     } catch (err) {
         res.status(500).json(err);

@@ -1,5 +1,25 @@
 .container {
-    padding: 2rem;
     background-color: #eee2dc;
     color: #ac3b61;
+    display: flex;
+    justify-content: center;
+    .output {
+        flex: 1;
+        max-width: 60rem;
+        padding: 2rem;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        .main {
+            display: flex;
+            justify-content: space-between;
+            padding-bottom: 2rem;
+            .name {
+                color: #123c69;
+                font-weight: 500;
+            }
+        }
+        .secondary {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
 }
