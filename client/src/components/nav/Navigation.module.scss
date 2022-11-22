@@ -4,23 +4,20 @@
     background-color: #edc7b7;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     padding: 2rem;
-}
-
-.navigationContainer {
-    display: flex;
-    flex: 1;
-    justify-content: space-between;
-    // padding: 2rem;
-
-    max-width: 60rem;
-    // border-bottom: 0.1rem solid #ac3b61;
-
-    .logo {
+    .navigationContainer {
         display: flex;
-        gap: 0.5rem;
-        align-items: center;
-    }
-    h1 {
-        color: #123c69;
+        flex: 1;
+        justify-content: space-between;
+
+        max-width: 60rem;
+
+        .logo {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+        h1 {
+            color: #123c69;
+        }
     }
 }

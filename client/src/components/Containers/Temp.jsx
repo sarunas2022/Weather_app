@@ -1,4 +1,3 @@
-import React, { useEffect } from 'react';
 import styles from './Temp.module.scss';
 
 function Temp(props) {
@@ -23,8 +22,6 @@ function Temp(props) {
         );
     } else {
         const data = props.weather;
-
-        console.log(data);
         const CurrentTemp = Math.round(data.main.temp);
         const feelsLike = Math.round(data.main.feels_like);
         return (

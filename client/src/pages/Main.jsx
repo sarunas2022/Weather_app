@@ -1,13 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Buttons from '../components/buttons/Buttons';
-import ForecastCard from '../components/Containers/ForecastCard';
 import MapsContainer from '../components/Containers/MapsContainer';
 import Temp from '../components/Containers/Temp';
 import styles from './Main.module.scss';
 function Main() {
     const [inputData, setInputData] = useState(() => {});
     const [weather, SetWeather] = useState(() => []);
-    const [forecast, setForecast] = useState(() => []);
     const [maps, setMaps] = useState(() => []);
 
     const getAllData = async (event) => {
@@ -18,20 +16,7 @@ function Main() {
             );
             const weatherData = await weatherResponse.json();
             SetWeather(weatherData);
-            const x = weatherData.coord.lon;
-            const y = weatherData.coord.lat;
-
-            // const forecastResponse = await fetch(
-            //     `http://localhost:8080/api/weather/forecast?city=${inputData.city}`
-            // );
-            const mapsResponse = await fetch(
-                `http://localhost:8080/api/maps?x=${y}?y=${x}`
-            );
-            // const forecastData = await forecastResponse.json();
-            // setForecast(forecastData);
-            const mapsData = await mapsResponse.json();
-            console.log(mapsData);
-            setMaps(mapsData);
+            setMaps({ lon: weatherData.coord.lon, lat: weatherData.coord.lat });
         } catch (err) {
             console.log(err);
         }
@@ -55,7 +40,7 @@ function Main() {
             </div>
             <Temp weather={weather} />
             {/* <ForecastCard forecast={forecast} /> */}
-            {/* <MapsContainer maps={maps} /> */}
+            <MapsContainer coordinates={maps} />
         </div>
     );
 }
