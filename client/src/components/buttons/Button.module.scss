@@ -4,4 +4,8 @@
     color: #eee2dc;
     border: none;
     cursor: pointer;
+    &:hover {
+        background-color: #123c69;
+        font-weight: bold;
+    }
 }
