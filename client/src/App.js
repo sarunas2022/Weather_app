@@ -7,13 +7,11 @@ import Footer from './components/Footer/Footer';
 function App() {
     return (
         <div className='output'>
-            <div className='output1'>
-                <Navigation></Navigation>
-                <Routes>
-                    <Route path='/' element={<Main />} />
-                </Routes>
-                <Footer />
-            </div>
+            <Navigation></Navigation>
+            <Routes>
+                <Route path='/' element={<Main />} />
+            </Routes>
+            <Footer />
         </div>
     );
 }

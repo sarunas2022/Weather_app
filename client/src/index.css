@@ -4,5 +4,6 @@
     font-family: 'roboto', sans-serif;
 }
 .output {
-    background-color: aqua;
+    background-color: #eee2dc;
+    height: 100%;
 }

@@ -28,7 +28,7 @@ function MapsContainer(props) {
                         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                     />
                     <Marker position={coordinates}>
-                        <Popup></Popup>
+                        {/* <Popup></Popup> */}
                     </Marker>
                     <RecenterAutomatically coordinates={coordinates} />
                 </MapContainer>
