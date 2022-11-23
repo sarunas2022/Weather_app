@@ -3,3 +3,6 @@
     margin: 0;
     font-family: 'roboto', sans-serif;
 }
+.output {
+    background-color: aqua;
+}

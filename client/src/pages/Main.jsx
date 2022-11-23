@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Buttons from '../components/buttons/Buttons';
 import MapsContainer from '../components/Containers/MapsContainer';
 import Temp from '../components/Containers/Temp';
@@ -7,6 +7,53 @@ function Main() {
     const [inputData, setInputData] = useState(() => {});
     const [weather, SetWeather] = useState(() => []);
     const [maps, setMaps] = useState(() => []);
+    console.log(maps);
+
+    const successCallback = async (position) => {
+        setMaps({
+            lon: position.coords.longitude,
+            lat: position.coords.latitude,
+        });
+        try {
+            const locationResponse = await fetch(
+                `http://localhost:8080/api/weather/location?lat=${position.coords.latitude}&lon=${position.coords.longitude}`
+            );
+            const response = await locationResponse.json();
+            SetWeather(response);
+
+            return response;
+        } catch (err) {
+            console.log(err);
+        }
+        return null;
+    };
+
+    const errorCallback = (error) => {
+        console.log(error);
+    };
+
+    useEffect(() => {
+        navigator.geolocation.getCurrentPosition(
+            successCallback,
+            errorCallback
+        );
+    }, []);
+
+    useEffect(() => {
+        const getDataByLocation = async () => {
+            try {
+                const locationResponse = await fetch(
+                    `http://localhost:8080/api/weather/current?city=${weather.name}`
+                );
+                const response = await locationResponse.json();
+                SetWeather(response);
+                console.log(response);
+            } catch (err) {
+                console.log(err);
+            }
+        };
+        getDataByLocation();
+    }, []);
 
     const getAllData = async (event) => {
         event.preventDefault();
@@ -39,7 +86,6 @@ function Main() {
                 </form>
             </div>
             <Temp weather={weather} />
-            {/* <ForecastCard forecast={forecast} /> */}
             <MapsContainer coordinates={maps} />
         </div>
     );

@@ -4,8 +4,11 @@ function Temp(props) {
     if (props.weather.length === 0) {
         return (
             <>
-                <div className={styles.container}>
-                    <h1>Enter location to see weather</h1>
+                <div className={styles.error}>
+                    <h1>
+                        Enter location to see weather from almost anywhere in
+                        the World!
+                    </h1>
                 </div>
             </>
         );
@@ -13,7 +16,7 @@ function Temp(props) {
     if (props.weather.message) {
         return (
             <>
-                <div className={styles.container}>
+                <div className={styles.error}>
                     <h1>
                         Sorry, we could't find the location you searching for
                     </h1>
