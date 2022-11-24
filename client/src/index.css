@@ -4,5 +4,8 @@
     font-family: 'roboto', sans-serif;
 }
 .output {
-    background-color: aqua;
+    background-color: #eee2dc;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
