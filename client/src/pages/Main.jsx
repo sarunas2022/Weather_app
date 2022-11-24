@@ -4,11 +4,11 @@ import MapsContainer from '../components/Containers/MapsContainer';
 import Temp from '../components/Containers/Temp';
 import styles from './Main.module.scss';
 function Main() {
+    // Setting states for Input, weather data and location data
     const [inputData, setInputData] = useState(() => {});
     const [weather, SetWeather] = useState(() => []);
     const [maps, setMaps] = useState(() => []);
-    console.log(maps);
-
+    // if geolocation is successful using lon and lat to setMaps and fetch data from openWeatherMap api
     const successCallback = async (position) => {
         setMaps({
             lon: position.coords.longitude,
@@ -19,6 +19,7 @@ function Main() {
                 `http://localhost:8080/api/weather/location?lat=${position.coords.latitude}&lon=${position.coords.longitude}`
             );
             const response = await locationResponse.json();
+            // setting weather data from response
             SetWeather(response);
 
             return response;
@@ -27,18 +28,18 @@ function Main() {
         }
         return null;
     };
-
+    // if geolocation is unsuccessful returning error
     const errorCallback = (error) => {
         console.log(error);
     };
-
+    // asking for geolocation data form the user
     useEffect(() => {
         navigator.geolocation.getCurrentPosition(
             successCallback,
             errorCallback
         );
     }, []);
-
+    // getting and rendering data from openWeatherMap api
     useEffect(() => {
         const getDataByLocation = async () => {
             try {
@@ -54,7 +55,7 @@ function Main() {
         };
         getDataByLocation();
     }, []);
-
+    // getting and rendering data after input submitted
     const getAllData = async (event) => {
         event.preventDefault();
         try {
