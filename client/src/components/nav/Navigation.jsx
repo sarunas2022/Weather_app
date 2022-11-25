@@ -1,5 +1,4 @@
 import React from 'react';
-import Buttons from '../buttons/Buttons';
 import styles from './Navigation.module.scss';
 import WbSunnyIcon from '@mui/icons-material/WbSunny';
 

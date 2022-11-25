@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, useMap } from 'react-leaflet';
 
 import styles from './MapsContainer.module.scss';
 function MapsContainer(props) {
@@ -12,7 +12,6 @@ function MapsContainer(props) {
             map.flyTo(coordinates, 14, {
                 duration: 2,
             });
-
             return null;
         };
         return (

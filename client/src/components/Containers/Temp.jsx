@@ -4,12 +4,7 @@ function Temp(props) {
     if (props.weather.length === 0) {
         return (
             <>
-                <div className={styles.error}>
-                    <h1>
-                        Enter location to see weather from almost anywhere in
-                        the World!
-                    </h1>
-                </div>
+                <div className={styles.error}></div>
             </>
         );
     }
