@@ -39,22 +39,7 @@ function Main() {
             errorCallback
         );
     }, []);
-    // getting and rendering data from openWeatherMap api
-    useEffect(() => {
-        const getDataByLocation = async () => {
-            try {
-                const locationResponse = await fetch(
-                    `http://localhost:8080/api/weather/current?city=${weather.name}`
-                );
-                const response = await locationResponse.json();
-                SetWeather(response);
-                console.log(response);
-            } catch (err) {
-                console.log(err);
-            }
-        };
-        getDataByLocation();
-    }, []);
+
     // getting and rendering data after input submitted
     const getAllData = async (event) => {
         event.preventDefault();
