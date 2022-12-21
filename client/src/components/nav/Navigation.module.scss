@@ -1,21 +1,25 @@
 .wrapper {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     background-color: #ac3b61;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-    padding: 2rem;
+    padding: 1rem;
     .navigationContainer {
         display: flex;
-        flex: 1;
-        justify-content: space-between;
-        max-width: 60rem;
-        .logo {
-            display: flex;
-            gap: 0.5rem;
-            align-items: center;
-        }
+        align-items: center;
+        gap: 0.5rem;
         h1 {
             color: rgb(238, 238, 89);
+        }
+    }
+}
+
+@media (max-width: 48rem) {
+    .wrapper {
+        .navigationContainer {
+            h1 {
+                font-size: 1.5rem;
+            }
         }
     }
 }

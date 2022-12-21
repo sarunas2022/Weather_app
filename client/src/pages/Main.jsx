@@ -16,7 +16,7 @@ function Main() {
         });
         try {
             const locationResponse = await fetch(
-                `http://localhost:8080/api/weather/location?lat=${position.coords.latitude}&lon=${position.coords.longitude}`
+                `https://sgrab-weather-maps.herokuapp.com/api/weather/location?lat=${position.coords.latitude}&lon=${position.coords.longitude}`
             );
             const response = await locationResponse.json();
             // setting weather data from response
@@ -45,7 +45,7 @@ function Main() {
         event.preventDefault();
         try {
             const weatherResponse = await fetch(
-                `http://localhost:8080/api/weather/current?city=${inputData.city}`
+                `https://sgrab-weather-maps.herokuapp.com/api/weather/current?city=${inputData.city}`
             );
             const weatherData = await weatherResponse.json();
             SetWeather(weatherData);

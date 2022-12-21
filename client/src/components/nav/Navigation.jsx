@@ -23,8 +23,8 @@ function Navigation() {
                                 },
                             }}
                         />
-                        <h1>What's the weather?</h1>
                     </div>
+                    <h1>What's the weather?</h1>
                 </div>
             </div>
         </>
