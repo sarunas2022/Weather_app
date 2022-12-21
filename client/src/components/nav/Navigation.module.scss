@@ -1,19 +1,20 @@
 .wrapper {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     background-color: #ac3b61;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     padding: 1rem;
     .navigationContainer {
         display: flex;
-        align-items: center;
         gap: 0.5rem;
+        align-items: center;
+        flex: 1;
+        max-width: 60rem;
         h1 {
             color: rgb(238, 238, 89);
         }
     }
 }
-
 @media (max-width: 48rem) {
     .wrapper {
         .navigationContainer {
