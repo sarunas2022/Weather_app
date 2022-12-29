@@ -5,16 +5,26 @@
     text-align: center;
     color: #ac3b61;
 }
+.loader {
+    padding-top: 2rem;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
 .container {
     background-color: #eee2dc;
     color: #ac3b61;
     display: flex;
     justify-content: center;
+    height: 100%;
+    width: 100%;
     .output {
         flex: 1;
         max-width: 60rem;
+        height: 100%;
         padding: 2rem;
         box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
         .main {
             display: flex;
             gap: 1rem;
