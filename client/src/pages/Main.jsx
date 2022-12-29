@@ -3,7 +3,6 @@ import Buttons from '../components/buttons/Buttons';
 import MapsContainer from '../components/Containers/MapsContainer';
 import Temp from '../components/Containers/Temp';
 import styles from './Main.module.scss';
-import { CircularProgress } from '@mui/material';
 
 function Main() {
     // Setting states for Input, weather data and location data
@@ -14,14 +13,7 @@ function Main() {
     // setting state for status to load to display spinner while data is loading
     const [status, setStatus] = useState('idle');
 
-    // circular loading to be displayed if status is 'loading'
-    const whileLoading = (
-        <div className={styles.loader}>
-            <CircularProgress sx={{ color: '#ac3b61' }} />
-        </div>
-    );
     // if geolocation is successful using lon and lat to setMaps and fetch data from openWeatherMap api
-
     const successCallback = async (position) => {
         setMaps({
             lon: position.coords.longitude,
@@ -90,8 +82,7 @@ function Main() {
                 </form>
             </div>
             {/* passing down weather data and status to Temp component */}
-            {status === 'loading' && whileLoading}
-            <Temp weather={weather} status={status} />
+            <Temp weather={weather} status={status}></Temp>
             <MapsContainer coordinates={maps} />
         </div>
     );

@@ -1,6 +1,19 @@
 import styles from './Temp.module.scss';
+import { CircularProgress } from '@mui/material';
+
+// function returning circular  spinner
+const whileLoading = (
+    <div className={styles.loader}>
+        <CircularProgress sx={{ color: '#ac3b61' }} />
+    </div>
+);
 
 function Temp(props) {
+    // console.log(props.status);
+    if (props.status === 'loading') {
+        return whileLoading;
+    }
+
     if (props.weather.length === 0) {
         return (
             <>
